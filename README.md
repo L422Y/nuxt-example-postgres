@@ -1,75 +1,63 @@
-# Nuxt 3 Minimal Starter
+# Nuxt Example with PostgreSQL
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+## Project Overview
+This Nuxt 3 application demonstrates integration with a PostgreSQL database, showcasing server-side operations in a Nuxt environment. Built with Nuxt 3, the project leverages pg (PostgreSQL client for Node.js) for backend database interactions and Vue for frontend development.
 
-## Setup
+## Getting Started
 
-Make sure to install the dependencies:
+### Prerequisites
+- Node.js and npm/pnpm/yarn installed
+- PostgreSQL database server
 
+### Installation
+Clone the repository and install dependencies:
 ```bash
+git clone https://github.com/L422Y/nuxt-example-postgres.git
+cd nuxt-example-postgres
 # npm
 npm install
-
-# pnpm
+# or pnpm
 pnpm install
-
-# yarn
+# or yarn
 yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
+### Database Configuration
+Configure your PostgreSQL database connection in `server/plugins/pg.ts`. The default configuration uses the RNA Central public database. Set environment variables for the database user, host, database name, and password for your PostgreSQL connection.
 
+### Running the Development Server
 Start the development server on `http://localhost:3000`:
-
 ```bash
 # npm
 npm run dev
-
-# pnpm
+# or pnpm
 pnpm run dev
-
-# yarn
+# or yarn
 yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
+### Building for Production
 Build the application for production:
-
 ```bash
 # npm
 npm run build
-
-# pnpm
+# or pnpm
 pnpm run build
-
-# yarn
+# or yarn
 yarn build
-
-# bun
-bun run build
 ```
 
-Locally preview production build:
+## Key Components
 
-```bash
-# npm
-npm run preview
+### API Endpoints
+The API endpoint at `server/api/test.get.ts` demonstrates a simple database query operation.
 
-# pnpm
-pnpm run preview
+### Data Model
+Data models, such as `RowInterface` in `types/RowInterface.ts`, represent the structure of the database rows and are used for type checking and data handling.
 
-# yarn
-yarn preview
+### Nuxt Configuration
+The Nuxt configuration is defined in `nuxt.config.ts`. It includes basic settings for development tools.
 
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Additional Resources
+- [Nuxt 3 Documentation](https://nuxt.com/docs/getting-started/introduction)
+- [PostgreSQL Documentation](https://www.postgresql.org/docs/)
