@@ -1,5 +1,7 @@
 # Nuxt Example with PostgreSQL
 
+> This project requires a TCP connection to a database at hh-pgsql-public.ebi.ac.uk, which is not yet supported in Stackblitz - you will need to check this repository out and run it locally
+
 ## Project Overview
 This Nuxt 3 application demonstrates integration with a PostgreSQL database, showcasing server-side operations in a Nuxt environment. Built with Nuxt 3, the project leverages pg (PostgreSQL client for Node.js) for backend database interactions and Vue for frontend development.
 

@@ -9,6 +9,10 @@
         <p> The library
             used is <a href="https://node-postgres.com/" target="_blank">node-postgres</a>.</p>
         <hr>
+       <div v-if="stackblitz" class="stackblitz">
+            <h3>⚠️ Stackblitz Detected</h3>
+           This project requires a TCP connection to a database at hh-pgsql-public.ebi.ac.uk, which is not yet supported in Stackblitz - you will need to check this repository out and run it locally
+       </div>
         <Transition>
             <div v-if="pending && status === 'idle'">
                 <button @click="execute()">Click Here to Fetch a List of RNA Central Databases</button>
@@ -35,9 +39,15 @@ import RNADatabaseRow from "~/components/RNA/RNADatabaseRow.vue"
 
 const {data, error, pending, execute, status} = await useLazyFetch<{ rows: RowInterface[] }>("/api/test", {server: false, immediate:false})
 const rows: Ref<RowInterface[]> = computed(() => data.value?.rows || [])
+
+const stackblitz = ref(false)
+if(process.client) {
+    stackblitz.value = window.location.href.includes('webcontainer')
+}
 </script>
 <style scoped>
 main {
+    font-family: helvetica, arial, sans-serif;
     max-width: calc(100% - 2rem);
     margin: 0 auto;
     width: 720px;
@@ -58,6 +68,15 @@ main {
     opacity: 0;
     transform: scaleY(0);
     max-height: 0;
+}
+
+.stackblitz {
+    padding:1rem;
+    background: #eeeeee;
+    margin:2rem auto;
+}
+.stackblitz h3 {
+    margin:0;
 }
 
 </style>
