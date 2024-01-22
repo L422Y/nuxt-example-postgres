@@ -41,9 +41,9 @@ const {data, error, pending, execute, status} = await useLazyFetch<{ rows: RowIn
 const rows: Ref<RowInterface[]> = computed(() => data.value?.rows || [])
 
 const stackblitz = ref(false)
-if(process.client) {
+onMounted(() => {
     stackblitz.value = window.location.href.includes('webcontainer')
-}
+})
 </script>
 <style scoped>
 main {
